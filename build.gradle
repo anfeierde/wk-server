@@ -1,0 +1,35 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+        jjwtVersion = '0.7.0'
+    }
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+}
+
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile("io.jsonwebtoken:jjwt:${jjwtVersion}")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}

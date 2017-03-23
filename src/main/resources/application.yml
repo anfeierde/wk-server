@@ -1,0 +1,30 @@
+server:
+  port: 8090
+  contextPath:
+
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  data.mongodb:
+    host: 127.0.0.1
+    port: 27017
+    database: wk-db
+
+jwt:
+  tokenHeader: Authorization
+  secret: mySecret
+  expiration: 604800
+  tokenHead: "Bearer "
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+      register: "auth/register"
+
+# Logging configuration
+logging:
+  level:
+    org.springframework:
+      data: DEBUG
+      security: DEBUG
